@@ -1,0 +1,2 @@
+hdprep <- fst::read.fst("hdprep.fst")
+mosaicplot(table(hdprep$gender, hdprep$status), main="Gender Mosaic Plot", xlab="Gender", ylab="Status", col=c(3,4))
