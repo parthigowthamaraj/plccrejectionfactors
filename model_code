@@ -1,0 +1,14 @@
+# loading and train and test data
+traindata <- fst::read.fst("traindata.fst")
+testdata <- fst::read.fst("testdata.fst")
+
+## running first model 
+names(traindata)
+model123 <- glm(status ~ .-custID, data=traindata, family=binomial(link="logit"))
+summary(model123)
+round(model123$coefficients, digits=3)
+#summary(model123)
+
+library(caret)
+traindata$status <- as.factor(traindata$status)
+testdata$status <- as.factor(testdata$status)
